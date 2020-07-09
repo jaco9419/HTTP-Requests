@@ -1,7 +1,7 @@
 # HTTP-Requests
 Comparing ways to do HTTP Requests using Codecademy and FreeCodeCamp
 
-## Get JSON with the JavaScript XMLHttpRequest Method
+## Get JSON with the JavaScript XMLHttpRequest Method (FreeCodeCamp)
 You can also request data from an external source. This is where APIs come into play.
 
 Remember that APIs - or Application Programming Interfaces - are tools that computers use to communicate with one another. You'll learn how to update HTML with the data we get from APIs using a technology called AJAX.
