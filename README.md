@@ -61,3 +61,18 @@ After a Promise is returned, if the request was successful, the then method is e
 The then method also returns a Promise, which is handled by the next then method. The argument in the second then is the JSON object you are looking for!
 
 Now, it selects the element that will receive the data by using document.getElementById(). Then it modifies the HTML code of the element by inserting a string created from the JSON object returned from the request.
+
+## Get fetch method (Codecademy)
+
+<pre><code>fetch(endpoint, {cache: 'no-cache'})
+.then(response => {
+  if (response.ok) {
+    return response.json();
+  }
+  throw new Error('Request failed!');
+}, networkError => {
+  console.log(networkError.message)
+})
+.then(jsonResponse => {
+  renderResponse(jsonResponse);
+})</code></pre>
