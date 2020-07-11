@@ -36,6 +36,10 @@ Here's a review of what each piece is doing. The JavaScript XMLHttpRequest objec
       req.onload = function(){
         const json = JSON.parse(req.responseText);
         let html = "";
+        //Pre-filter JSON to Get the Data You Need
+        json = json.filter(val => {
+          return (val.id == 1);
+        })
         json.forEach(function(val) {
           html += "<div class = 'cat'>";
           html += "<img src = '" + val.imageLink + "' " + "alt='" + val.altText + "'>";
