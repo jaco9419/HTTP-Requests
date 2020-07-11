@@ -100,3 +100,11 @@ Now, it selects the element that will receive the data by using document.getElem
 .then(jsonResponse => {
   renderResponse(jsonResponse);
 })</code></pre>
+
+## Check Geographical location
+<pre><code>if (navigator.geolocation){
+navigator.geolocation.getCurrentPosition(function(position) {
+document.getElementById('data').innerHTML="latitude: " + 
+position.coords.latitude + "<br>longitude: " + position.coords.longitude;
+});
+}</code></pre>
