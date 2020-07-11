@@ -2,6 +2,7 @@
 Comparing ways to do HTTP Requests using Codecademy and FreeCodeCamp
 
 ## Get XMLHttp Request Method (FreeCodeCamp)
+
 You can also request data from an external source. This is where APIs come into play.
 
 Remember that APIs - or Application Programming Interfaces - are tools that computers use to communicate with one another. You'll learn how to update HTML with the data we get from APIs using a technology called AJAX.
@@ -66,6 +67,7 @@ xhr.open('GET', url);
 xhr.send();</pre></code>
 
 ## Get fetch method (FreeCodeCamp)
+
 Another way to request external data is to use the JavaScript fetch() method. It is equivalent to XMLHttpRequest, but the syntax is considered easier to understand.
 
 Here is the code for making a GET request to /json/cats.json
@@ -101,10 +103,50 @@ Now, it selects the element that will receive the data by using document.getElem
   renderResponse(jsonResponse);
 })</code></pre>
 
+## POST XMLHttp Request Method (FreeCodeCamp)
+
+In the previous examples, you received data from an external resource. You can also send data to an external resource, as long as that resource supports AJAX requests and you know the URL.
+
+JavaScript's XMLHttpRequest method is also used to post data to a server. Here's an example:
+
+<pre><code>const xhr = new XMLHttpRequest();
+xhr.open('POST', url, true);
+xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
+xhr.onreadystatechange = function () {
+  if (xhr.readyState === 4 && xhr.status === 201){
+    const serverResponse = JSON.parse(xhr.response);
+    document.getElementsByClassName('message')[0].textContent = serverResponse.userName + serverResponse.suffix;
+  }
+};
+const body = JSON.stringify({ userName: userName, suffix: ' loves cats!' });
+xhr.send(body);</code></pre>
+
+You've seen several of these methods before. Here the open method initializes the request as a "POST" to the given URL of the external resource, and uses the true Boolean to make it asynchronous. The setRequestHeader method sets the value of an HTTP request header, which contains information about the sender and the request. It must be called after the open method, but before the send method. The two parameters are the name of the header and the value to set as the body of that header. Next, the onreadystatechange event listener handles a change in the state of the request. A readyState of 4 means the operation is complete, and a status of 201 means it was a successful request. The document's HTML can be updated. Finally, the send method sends the request with the body value, which the userName key was given by the user in the input field.
+
+## POST XMLHttp Request Method (Codecademy)
+
+<pre><code>const xhr = new XMLHttpRequest;
+const url = 'https://api-to-call.com/endpoint';
+const data = JSON.stringify({id: '200'});
+
+xhr.responseType = 'json';
+xhr.onreadystatechange = () => {
+if (xhr.readyState === XMLHttpRequest.DONE) {
+return xhr.response;
+}
+}
+
+xhr.open('POST', url);
+xhr.send(data);</code></pre>
+
 ## Check Geographical location
+
 <pre><code>if (navigator.geolocation){
 navigator.geolocation.getCurrentPosition(function(position) {
 document.getElementById('data').innerHTML="latitude: " + 
 position.coords.latitude + "<br>longitude: " + position.coords.longitude;
 });
 }</code></pre>
+
+<hr>
+The contents in this file are extractions from FreeCodeCamp and Codecademy
