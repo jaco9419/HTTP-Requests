@@ -42,7 +42,7 @@ Here's a review of what each piece is doing. The JavaScript XMLHttpRequest objec
         })
         json.forEach(function(val) {
           html += "<div class = 'cat'>";
-          html += "<img src = '" + val.imageLink + "' alt='" + val.altText + "'>";
+          html += `<img src = "${val.imageLink}" alt="${val.altText}">`;
           html += "</div><br>";
         });
         document.getElementsByClassName('message')[0].innerHTML=html;
